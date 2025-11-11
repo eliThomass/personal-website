@@ -1,3 +1,4 @@
+/*
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 // Shared components
@@ -29,6 +30,24 @@ function App() {
         
         <Footer/>
       </div>
+    </BrowserRouter>
+  )
+}
+
+export default App
+*/
+
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import UnderConstruction from './pages/UnderConstruction'
+
+function App() {
+  const repoName = import.meta.env.BASE_URL || '/'
+
+  return (
+    <BrowserRouter basename={repoName}>
+      <Routes>
+        <Route path="*" element={<UnderConstruction />} />
+      </Routes>
     </BrowserRouter>
   )
 }
