@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  margin: 0; /* Good to reset margin, too */
+  padding: 0; /* Reset padding, then add it back where you need it */
+}
+
+.navbar {
+    width: 100%;
+    min-height: 130px;
+
+    display: grid; /* <-- Change from flex */
+    grid-template-columns: 1fr auto 1fr; /* <-- 3-column layout */
+    
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    background: linear-gradient(135deg, #111111, #3a1c4b);
+    color: #EAEAEA;
+    font-size: clamp(30px, 3.5vw, 70px);
+    font-family: 'Red Hat Display', sans-serif;
+    
+}
+
+.name {
+    grid-column: 1; /* Go in the first column */
+    justify-self: start; /* Align to the left */
+    font-weight: 600;
+}
+
+.nav-links {
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5%;
+
+    font-size: clamp(25px, 1.75vw, 40px);
+    color:#ddc5eb;
+    font-weight: 400;
+}
+
+.nav-link:hover {
+    color: #866b96;
+    cursor: pointer;
+}
+
+.social-icons {
+    grid-column: 3;
+    justify-self: end; /* <-- This is the fix */
+
+    /* You might also want to make it a flex container 
+       to space out the icons inside it */
+    display: flex;
+    gap: 20px;
+}
+
+.icon {
+    height: clamp(30px, 3vw, 80px);
+    width: auto;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.footer {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: clamp(15px, 1vw, 30px);
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 1.2vh;
+}

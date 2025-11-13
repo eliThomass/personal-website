@@ -1,7 +1,8 @@
+import '../styles/navbar.css';
 function Footer() {
   return (
-    <div>
-      Footer
+    <div class="footer">
+      © Elias Thomas 2025
     </div>
   )
 }
