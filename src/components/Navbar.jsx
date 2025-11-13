@@ -2,16 +2,19 @@ import '../styles/navbar.css';
 import LI from '../assets/linkedin.svg';
 import GH from '../assets/github.svg';
 import IN from '../assets/instagram.svg';
+import { useNavigate } from 'react-router-dom';
+
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <div class="header">
        <nav class="navbar">
-          <span class="name">Eli Thomas</span>
+          <a onClick={() => navigate('/')}><span class="name">Eli Thomas</span></a>
 
           <div class="nav-links">
-            <a class="nav-link">Projects</a>
-            <a class="nav-link">Resume</a>
-            <a class="nav-link">Contact</a>
+            <a class="nav-link" onClick={() => navigate('/projects')}>Projects</a>
+            <a class="nav-link" onClick={() => navigate('/resume')}>Resume</a>
+            <a class="nav-link" onClick={() => navigate('/contact')}>Contact</a>
           </div>
 
           <div class="social-icons">

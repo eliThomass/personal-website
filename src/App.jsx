@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Resume from './pages/Resume'
+import Contact from './pages/Contact'
 
 function App() {
   const repoName = import.meta.env.BASE_URL || '/'
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/projects" element={<Projects/>}/>
             <Route path="/resume" element={<Resume/>}/>
+            <Route path="/contact" element={<Contact/>}/>
             
             <Route path="*" element={<Navigate to="/" replace/>}/>
           </Routes>
