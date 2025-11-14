@@ -1,7 +1,8 @@
+import '../styles/contact.css'
 function Contact() {
   return (
-    <div>
-      Footer
+    <div class='underconst'>
+      Coming soon...
     </div>
   )
 }

@@ -9,12 +9,11 @@ function Navbar() {
   return (
     <div class="header">
        <nav class="navbar">
-          <a onClick={() => navigate('/')}><span class="name">Eli Thomas</span></a>
-
           <div class="nav-links">
-            <a class="nav-link" onClick={() => navigate('/projects')}>Projects</a>
-            <a class="nav-link" onClick={() => navigate('/resume')}>Resume</a>
-            <a class="nav-link" onClick={() => navigate('/contact')}>Contact</a>
+            <a class="nav-link" onClick={() => navigate('/')}>&lt;About_Me object at 0x784c574f10b0&gt;</a>
+            <a class="nav-link" onClick={() => navigate('/projects')}>&lt;Projects object at 0x682g5h4a1010&gt;</a>
+            <a class="nav-link" onClick={() => navigate('/resume')}>&lt;Resume object at 0x884c574f101f&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="nav-link" onClick={() => navigate('/contact')}>&lt;Contact object at 0x384e57461710&gt;</a>
           </div>
 
           <div class="social-icons">

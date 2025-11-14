@@ -1,7 +1,8 @@
+import '../styles/projects.css'
 function Projects() {
   return (
-    <div>
-      Projects
+    <div class='underconst'>
+      Under construction... this page is coming soon!
     </div>
   )
 }
