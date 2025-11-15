@@ -1,5 +1,5 @@
 import '../styles/home.css';
-import ME from '../assets/output-onlinepngtools.png';
+import ME from '../assets/176323023143100446.jpeg';
 import  { useState, useEffect } from 'react';
 function Home() {
   const msg = "Hello! I'm Eli.";

@@ -47,7 +47,6 @@
 .me {
     height: 500px;
     width: auto;
-    transform: scaleY(-1);
     border-radius: 100px;
 }
 

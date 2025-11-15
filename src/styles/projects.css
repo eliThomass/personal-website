@@ -5,4 +5,48 @@
     height: 500px;
     color: #FFD700;
     font-size: 20px;
+    
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
+    margin-top: 40px;
+    column-gap: 5vw;
+    row-gap: 3vw;
+    margin-bottom: 20px;
+}
+
+.projbody {
+    color:#FFD700;
+    border: 1px solid #FFD700;
+    width: 35%;
+    height: auto;
+    padding: 5px;
+    flex-direction: column;
+    display: flex;
+    border-radius: 6px;
+}
+
+.projheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.projimg {
+    width: 80%;
+    height: auto;
+    margin: 15px;
+}
+
+.projectdesc {
+    padding: 1%;
+    padding-top: 0;
 }
