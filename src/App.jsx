@@ -14,7 +14,7 @@ function App() {
   const repoName = import.meta.env.BASE_URL || '/'
 
   return (
-    <BrowserRouter basename={repoName}>
+    <BrowserRouter>
       <div style={{minHeight: "100vh", display: "flex", flexDirection: "column"}}>
         <Navbar/>
         
@@ -25,7 +25,9 @@ function App() {
             <Route path="/resume" element={<Resume/>}/>
             <Route path="/contact" element={<Contact/>}/>
             
-            <Route path="*" element={<Navigate to="/" replace/>}/>
+            <Route path="*" element={
+                window.location.search.includes('?p=/') ? null : <Navigate to="/" replace />
+            }/>
           </Routes>
         </main>
         
