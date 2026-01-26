@@ -84,6 +84,7 @@ function Home() {
             <p class='marginbot'>Backend</p>
             <div class='skillbox'>
               <span>FastAPI</span>
+              <span>Django</span>
               <span>RESTful APIs</span>
               <span>JWT</span>
             </div>
