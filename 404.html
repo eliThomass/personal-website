@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Eli Thomas Dev</title>
+        <script type="text/javascript">
+      // This script takes the 404 path and converts it into a search parameter
+      // so that index.html can read it and tell React Router where to go.
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1).join('/') + '/?p=/' +
+            l.pathname.split('/').slice(1).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash
+        );
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
