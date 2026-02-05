@@ -2,7 +2,7 @@ import '../styles/navbar.css';
 function Footer() {
   return (
     <div class="footer">
-      © Elias Thomas 2025
+      © Elias Thomas 2026
     </div>
   )
 }
