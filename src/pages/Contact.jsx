@@ -32,7 +32,7 @@ function Contact() {
 
                     <div className='input-group'>
                         <label htmlFor="email" className='input-label'>&gt; Email:</label>
-                        <input id="email" type="email" name="email" className='terminal-input' required />
+                        <input id="email" type="email" name="email" defaultValue="ecthomas05@gmail.com" className='terminal-input' required />
                         <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </div>
 
