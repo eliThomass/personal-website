@@ -5,9 +5,25 @@ import CM from '../assets/compiler.png';
 import AQ from '../assets/airquality.png';
 import AV from '../assets/algovisu.png';
 import SP from '../assets/steampicker.png'
+import CC from '../assets/checkers_checker.png';
 function Projects() {
   return (
     <div class='cards'>
+      <div class='projbody'>
+          <div class='projectcard'>
+            <div class='projheader'>
+              <span style={{fontSize: "30px", fontStyle: "bold", marginBottom: "5px"}}>Checkers Minimax Engine</span> 
+              <p>C++, Python, Pygame, Minimax AI</p>
+              <span style={{fontSize: "20px", fontStyle: "italic", paddingTop: "5px"}}>&nbsp;May 2026</span>
+              <img src={CC} class='projimg'></img>
+            </div>
+            <div class='projectdesc'>
+              <p>• Developed a hybrid Checkers AI engine bridging an interactive Python/Pygame frontend with a highly optimized C++ backend via a Foreign Function Interface.</p>
+              <p>• Implemented the Minimax algorithm with Alpha-Beta pruning and move-ordering heuristics to efficiently mitigate exponential game-tree time complexity.</p>
+              <p>• Expanded the real-time evaluation horizon to 12 plies, calculating optimal strategic moves in under 5 seconds to consistently defeat human players.</p>
+            </div>
+          </div>
+        </div>
       <div class='projbody'>
           <div class='projectcard'>
             <div class='projheader'>
