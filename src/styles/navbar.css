@@ -5,19 +5,20 @@
 }
 
 .navbar {
+    position: relative;
     width: 100%;
-    min-height: 90px;
+    min-height: var(--nav-height);
 
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    
+
     align-items: center;
     padding-left: 3%;
     padding-right: 3%;
-    background: rgb(24, 23, 23);
-    color: #EAEAEA;
-    font-family: 'Red Hat Display', sans-serif;
-    
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-display);
+    z-index: 50;
 }
 
 .nav-links {
@@ -28,7 +29,7 @@
     gap: 5%;
 
     font-size: clamp(21px, 1.6vw, 35px);
-    color: #FFD700;
+    color: var(--color-accent);
     font-weight: 400;
 }
 
@@ -37,9 +38,39 @@
     color: rgb(206, 206, 206);
 }
 
-.nav-link:hover {
-    color: #c3a602;
+.nav-link {
+    position: relative;
     cursor: pointer;
+    color: var(--color-accent);
+    text-decoration: none;
+    padding: 6px 2px;
+    transition: color var(--dur) var(--ease-out);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--color-accent-hover);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--dur) var(--ease-out);
+}
+
+.nav-link:hover {
+    color: var(--color-accent-hover);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+    transform: scaleX(1);
+}
+
+.nav-link.is-active {
+    color: var(--color-accent-strong);
 }
 
 .social-icons {
@@ -53,21 +84,139 @@
     height: clamp(30px, 3vw, 80px);
     width: auto;
     filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(30deg) brightness(150%) contrast(100%);
+    transition: transform var(--dur) var(--ease-out), filter var(--dur) var(--ease-out);
 }
 
 .icon:hover {
     cursor: pointer;
-    color: grey;
+    transform: translateY(-2px) scale(1.05);
     filter: invert(50%) sepia(90%) saturate(600%) hue-rotate(20deg) brightness(100%) contrast(100%);
 }
 
+/* Hamburger toggle button (mobile only) */
+.nav-toggle {
+    display: none;
+    grid-column: 3;
+    justify-self: end;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 110;
+}
+
+.nav-toggle__bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent);
+    margin: 5px 0;
+    transition: transform var(--dur) var(--ease-out),
+                opacity var(--dur-fast) var(--ease-out);
+    transform-origin: center;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Fullscreen mobile overlay menu */
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(34, 34, 34, 0.97);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-5);
+    padding: var(--space-5);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--dur) var(--ease-out);
+}
+
+.mobile-menu[data-open="true"] {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    animation: overlayIn var(--dur-slow) var(--ease-out);
+}
+
+@keyframes overlayIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.mobile-menu .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: clamp(18px, 5vw, 28px);
+    text-align: center;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.mobile-menu .nav-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.mobile-menu .social-icons {
+    gap: var(--space-4);
+    justify-self: center;
+}
+
+.mobile-menu .icon {
+    height: 36px;
+}
+
 .footer {
-    font-family: 'Red Hat Display', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(15px, 1vw, 30px);
     display: flex;
     align-items: flex-end;
     width: 100%;
     justify-content: center;
     padding-bottom: 1.2vh;
-    color: #FFD700;
+    padding-top: var(--space-3);
+    color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        min-height: var(--nav-height-mobile);
+        grid-template-columns: 1fr auto;
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
+
+    .navbar > .nav-links,
+    .navbar > .social-icons {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
 }

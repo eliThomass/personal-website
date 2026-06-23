@@ -1,6 +1,7 @@
 import '../styles/home.css';
 import ME from '../assets/suit.png';
 import  { useState, useEffect } from 'react';
+import Reveal from '../components/Reveal';
 function Home() {
   const msg = "Hello! I'm Eli.";
   const msg2 = ""
@@ -61,7 +62,7 @@ function Home() {
       <div class='skills'>
         <p class='skillhead'>&gt; My Skills</p>
         <div class='skillbody'>
-          <div class='skilldesc'>
+          <Reveal className='skilldesc' delay={0}>
             <p class='marginbot'>Languages</p>
             <div class='skillbox'>
               <span>Python</span>
@@ -70,8 +71,8 @@ function Home() {
               <span>C/C++</span>
               <span>HTML/CSS</span>
             </div>
-          </div>
-          <div class='skilldesc'>
+          </Reveal>
+          <Reveal className='skilldesc' delay={60}>
             <p class='marginbot'>Frontend</p>
             <div class='skillbox'>
               <span>React.js</span>
@@ -79,8 +80,8 @@ function Home() {
               <span>Response Design</span>
               <span>UI/UX</span>
             </div>
-          </div>
-          <div class='skilldesc'>
+          </Reveal>
+          <Reveal className='skilldesc' delay={120}>
             <p class='marginbot'>Backend</p>
             <div class='skillbox'>
               <span>FastAPI</span>
@@ -88,8 +89,8 @@ function Home() {
               <span>RESTful APIs</span>
               <span>JWT</span>
             </div>
-          </div>
-          <div class='skilldesc'>
+          </Reveal>
+          <Reveal className='skilldesc' delay={180}>
             <p class='marginbot'>Databases</p>
             <div class='skillbox'>
               <span>SQL (General)</span>
@@ -98,24 +99,24 @@ function Home() {
               <span>ER Diagrams</span>
               <span>DB Modeling</span>
             </div>
-          </div>
-          <div class='skilldesc'>
+          </Reveal>
+          <Reveal className='skilldesc' delay={240}>
             <p class='marginbot'>Embedded Systems</p>
             <div class='skillbox'>
               <span>Microcontrollers</span>
               <span>Firmware Development</span>
               <span>Circuitry</span>
             </div>
-          </div>
-          <div class='skilldesc'>
+          </Reveal>
+          <Reveal className='skilldesc' delay={300}>
             <p class='marginbot'>Tools</p>
             <div class='skillbox'>
               <span>Git/GitHub</span>
               <span>Linux/Unix</span>
               <span>VS Code</span>
             </div>
-          </div>
-          <div class='skilldesc'>
+          </Reveal>
+          <Reveal className='skilldesc' delay={360}>
             <p class='marginbot'>Methodology</p>
             <div class='skillbox'>
               <span>Agile/Scrum</span>
@@ -123,7 +124,7 @@ function Home() {
               <span>Clean Code Principles</span>
               <span>Debugging & Testing</span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </div>

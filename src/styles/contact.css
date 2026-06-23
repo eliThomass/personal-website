@@ -3,42 +3,51 @@
     flex-direction: column;
     width: 100%;
     max-width: 800px;
-    margin-top: 30px;
+    margin-top: var(--space-4);
+    padding: 0 clamp(16px, 5vw, 40px);
+    box-sizing: border-box;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    margin-top: 20px;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-2);
 }
 
 .input-label {
-    font-size: 20px;
-    font-family: 'Trebuchet MS', sans-serif;
+    font-size: clamp(16px, 1.4vw, 20px);
+    font-family: var(--font-body);
 }
 
 .terminal-input {
+    width: 100%;
+    box-sizing: border-box;
     background-color: transparent;
-    border: 2px solid #FFD700;
+    border: 2px solid var(--color-accent);
     border-radius: 10px;
     padding: 15px;
-    color: #FFD700;
-    font-size: 18px;
-    font-family: 'Courier New', Courier, monospace;
+    color: var(--color-accent);
+    /* >=16px prevents iOS Safari from zooming on focus */
+    font-size: max(16px, 1rem);
+    font-family: var(--font-mono);
     outline: none;
-    transition: 0.3s;
+    transition:
+        background-color var(--dur) var(--ease-out),
+        box-shadow var(--dur) var(--ease-out),
+        border-color var(--dur) var(--ease-out);
 }
 
 .terminal-input:focus {
-    background-color: rgba(255, 215, 0, 0.1);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    background-color: var(--color-accent-soft);
+    box-shadow: 0 0 10px var(--color-accent-glow);
+    border-color: var(--color-accent-strong);
 }
 
 .terminal-textarea {
@@ -48,20 +57,31 @@
 
 .submit-btn {
     align-self: flex-start;
-    background-color: #FFD700;
-    color: #222222;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
     border: none;
     padding: 12px 30px;
-    font-size: 20px;
+    min-height: 48px;
+    font-size: clamp(16px, 1.4vw, 20px);
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
-    font-family: 'Trebuchet MS', sans-serif;
+    transition:
+        background-color var(--dur) var(--ease-out),
+        transform var(--dur) var(--ease-out),
+        box-shadow var(--dur) var(--ease-out);
+    margin-top: var(--space-2);
+    font-family: var(--font-body);
 }
 
-.submit-btn:hover {
-    background-color: #e6c200;
+.submit-btn:hover:not(:disabled) {
+    background-color: var(--color-accent-strong);
     transform: translateY(-2px);
+    box-shadow: 0 8px 18px var(--color-accent-glow);
 }
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+

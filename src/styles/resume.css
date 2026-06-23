@@ -2,9 +2,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: var(--space-4) clamp(16px, 5vw, var(--space-6));
 }
 
 .resumeimg {
-    width: 50%;
+    width: min(900px, 100%);
     height: auto;
+    border: 1px solid var(--color-accent-soft);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.resumeimg:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .resumeimg {
+        width: 100%;
+    }
 }
