@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 
 // Shared components
 import Navbar from './components/Navbar'
@@ -10,27 +10,34 @@ import Projects from './pages/Projects'
 import Resume from './pages/Resume'
 import Contact from './pages/Contact'
 
-function App() {
-  const repoName = import.meta.env.BASE_URL || '/'
+function AnimatedRoutes() {
+  const location = useLocation()
+  return (
+    <div className="page-transition" key={location.pathname}>
+      <Routes location={location}>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/projects" element={<Projects/>}/>
+        <Route path="/resume" element={<Resume/>}/>
+        <Route path="/contact" element={<Contact/>}/>
 
+        <Route path="*" element={
+            window.location.search.includes('?p=/') ? null : <Navigate to="/" replace />
+        }/>
+      </Routes>
+    </div>
+  )
+}
+
+function App() {
   return (
     <BrowserRouter>
       <div style={{minHeight: "100vh", display: "flex", flexDirection: "column"}}>
         <Navbar/>
-        
+
         <main style={{flexGrow: 1}}>
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/projects" element={<Projects/>}/>
-            <Route path="/resume" element={<Resume/>}/>
-            <Route path="/contact" element={<Contact/>}/>
-            
-            <Route path="*" element={
-                window.location.search.includes('?p=/') ? null : <Navigate to="/" replace />
-            }/>
-          </Routes>
+          <AnimatedRoutes />
         </main>
-        
+
         <Footer/>
       </div>
     </BrowserRouter>
@@ -38,3 +45,4 @@ function App() {
 }
 
 export default App
+

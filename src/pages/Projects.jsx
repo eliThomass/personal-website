@@ -6,9 +6,43 @@ import AQ from '../assets/airquality.png';
 import AV from '../assets/algovisu.png';
 import SP from '../assets/steampicker.png'
 import CC from '../assets/checkers_checker.png';
+import { useEffect, useRef } from 'react';
 function Projects() {
+  const cardsRef = useRef(null);
+
+  useEffect(() => {
+    const root = cardsRef.current;
+    if (!root) return;
+
+    const cards = root.querySelectorAll('.projbody');
+    cards.forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = `${i * 70}ms`;
+    });
+
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    cards.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div class='cards'>
+    <div class='cards' ref={cardsRef}>
       <div class='projbody'>
           <div class='projectcard'>
             <div class='projheader'>
